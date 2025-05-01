@@ -22,6 +22,7 @@ def login_view(request):
     return render(request, "users/login.html")
 
 def logout_view(request):
+    
     logout(request)
     messages.success(request, "Successfully logged out.")
     return redirect('users:login')
