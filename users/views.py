@@ -15,7 +15,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            next_url = request.GET.get('next', reverse("users:user"))
+            next_url = request.GET.get('next', reverse("tasks:index"))
             return HttpResponseRedirect(next_url)
         else:
             messages.error(request, "Invalid Credentials.")

@@ -15,7 +15,15 @@
                     {% csrf_token %}
                     <button type="submit">Logout</button>
                 </form>
-            {% endif %}
+
+            {% else %}
+                {% if "/users" not in request.path%}
+                    <p> You are logged in as a guest, please </p>
+                    <a href ="{% url 'users:login' %}" class = btn> login</a>
+                {%endif%}
+            {% endif %} 
+            
+
         </div>
     </header>
     {% if messages %}
